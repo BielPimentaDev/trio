@@ -1,0 +1,35 @@
+{
+	"name": "trio-challenge",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"scripts": {
+		"dev": "nodemon src/main.ts",
+		"build": "tsc",
+		"start": "node dist/main.js",
+		"test": "jest",
+		"coverage": "npx jest --coverage"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/express": "^5.0.0",
+		"@types/jest": "^29.5.14",
+		"@types/node": "^22.13.10",
+		"@types/supertest": "^6.0.2",
+		"express": "^4.21.2",
+		"jest": "^29.7.0",
+		"nodemon": "^3.1.9",
+		"supertest": "^7.0.0",
+		"ts-jest": "^29.2.6",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.8.2"
+	},
+	"dependencies": {
+		"axios": "^1.8.3",
+		"dotenv": "^16.4.7",
+		"pg-promise": "^11.13.0",
+		"trio-challenge": "file:"
+	}
+}
