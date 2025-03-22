@@ -38,11 +38,11 @@ Here are the services that this application provides, encapsulating the business
 
 **Ports** define how the application's core components communicate with external systems. These components depend on abstractions, not on specific implementations. This enables easier switching of external dependencies without affecting the business logic.
 
-## Repository
+### Repository
 
 The **Repository** pattern abstracts the persistence layer of the application. By depending only on this interface, we can easily change the database type or how data is managed (e.g., using in-memory databases for unit testing).
 
-## Gateway
+### Gateway
 
 In this project, we use two external APIs: one for payment processing and another for notifications. We chose not to depend directly on these external services, as they may change over time or be swapped for business reasons. Additionally, this design allows us to mock the API behaviors, preventing unnecessary requests during testing.
 
