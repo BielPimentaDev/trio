@@ -54,5 +54,72 @@ The **Infrastructure** layer is responsible for communicating with external syst
 
 This application provides the following API endpoints:
 
+
 ### `GET /menu`
 Returns all products from the catalog, including variations and prices.
+
+```bash
+curl --request GET \
+  --url http://localhost:8000/api/menu \
+  --header 'Content-Type: application/json'
+```
+
+### `POST /orders`
+Place a new order.
+
+```bash
+curl --request POST \
+  --url http://localhost:8000/api/orders \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: insomnia/2023.5.8' \
+  --header 'role: manager' \
+  --data '{
+    "products" : [
+      {"name" : "Latte", "variant": "Vanilla" },
+      {"name" : "Espresso", "variant": "Single Shot" }
+    ]
+  }'
+```
+
+### `PATCH /orders/{id}/status`
+Update the status of an order as it progresses through different stages. Only users with the *manager* role can access this endpoint.
+
+```bash
+curl --request PATCH \
+  --url http://localhost:8000/api/orders/{orderId}/status \
+  --header 'Content-Type: application/json' \
+  --header 'role: manager'
+```
+
+### `GET /orders/{orderId}`
+Retrieve the details of a specific order, including the total price.
+
+```bash
+curl --request GET \
+  --url http://localhost:8000/api/orders/{orderId} \
+  --header 'Content-Type: application/json' \
+  --header 'role: customer'
+```
+
+## Test Coverage
+
+As previously mentioned, one of the main reasons for choosing Hexagonal Architecture was the high level of decoupling between components, making it easy to test each one independently. Additionally, we followed the **Test-Driven Development (TDD)** approach for this project. We created the tests first and then implemented the logic to make them pass. The tests include both unit and integration tests, ensuring 100% test coverage. This not only improves the reliability and maintainability of the project but also enhances its readability.
+
+To run the test coverage, use the following command:
+
+```bash
+npm run coverage
+```
+
+## Docker
+
+Docker was used to ensure consistency across different environments and simplify the configuration of the application's components. This allows the project to run smoothly regardless of the local or production environment.
+
+### Running the Project
+
+To build and run the project using Docker, use the following commands:
+
+```bash
+docker build -t trio-challenge .
+docker run -d -p 8000:8000 trio-challenge
+```
