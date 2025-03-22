@@ -105,11 +105,37 @@ curl --request GET \
 
 As previously mentioned, one of the main reasons for choosing Hexagonal Architecture was the high level of decoupling between components, making it easy to test each one independently. Additionally, we followed the **Test-Driven Development (TDD)** approach for this project. We created the tests first and then implemented the logic to make them pass. The tests include both unit and integration tests, ensuring 100% test coverage. This not only improves the reliability and maintainability of the project but also enhances its readability.
 
+### Test Coverage Summary
+
+| File              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s |
+|-------------------|---------|----------|---------|---------|-------------------|
+| **All files**     | 100     | 100      | 100     | 100     |                   |
+| **...cases**      | 100     | 100      | 100     | 100     |                   |
+| **...e.ts**       | 100     | 100      | 100     | 100     |                   |
+| **...e.ts**       | 100     | 100      | 100     | 100     |                   |
+| **...e.ts**       | 100     | 100      | 100     | 100     |                   |
+| **...e.ts**       | 100     | 100      | 100     | 100     |                   |
+| **...ities**      | 100     | 100      | 100     | 100     |                   |
+| **...r.ts**       | 100     | 100      | 100     | 100     |                   |
+| **...tants**      | 100     | 100      | 100     | 100     |                   |
+| **menu.ts**       | 100     | 100      | 100     | 100     |                   |
+| **...enums**      | 100     | 100      | 100     | 100     |                   |
+| **...s.ts**       | 100     | 100      | 100     | 100     |                   |
+| **...bject**      | 100     | 100      | 100     | 100     |                   |
+| **...t.ts**       | 100     | 100      | 100     | 100     |                   |
+| **...abase**      | 100     | 100      | 100     | 100     |                   |
+| **...e.ts**       | 100     | 100      | 100     | 100     |                   |
+| **...ories**      | 100     | 100      | 100     | 100     |                   |
+| **...y.ts**       | 100     | 100      | 100     | 100     |                   |
+| **...y.ts**       | 100     | 100      | 100     | 100     |                   |
+
+
 To run the test coverage, use the following command:
 
 ```bash
-npm 
+npm run coverage
 ```
+OBS: To ensure all tests run correctly, you must have the project running for the integration tests.
 
 ## Docker
 
@@ -120,6 +146,5 @@ Docker was used to ensure consistency across different environments and simplify
 To build and run the project using Docker, use the following commands:
 
 ```bash
-docker  .
-docker
+npm run start
 ```
