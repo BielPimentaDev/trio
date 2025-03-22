@@ -108,7 +108,7 @@ As previously mentioned, one of the main reasons for choosing Hexagonal Architec
 To run the test coverage, use the following command:
 
 ```bash
-npm run coverage
+npm 
 ```
 
 ## Docker
@@ -120,6 +120,6 @@ Docker was used to ensure consistency across different environments and simplify
 To build and run the project using Docker, use the following commands:
 
 ```bash
-docker build -t trio-challenge .
-docker run -d -p 8000:8000 trio-challenge
+docker  .
+docker
 ```
