@@ -6,9 +6,9 @@
 	"scripts": {
 		"dev": "nodemon src/main.ts",
 		"build": "tsc",
-		"start": "node dist/main.js",
+		"start": "docker-compose up --build",
 		"test": "jest",
-		"coverage": "npx jest --coverage"
+		"coverage": "docker exec -it trio-challenge npx jest --coverage"
 	},
 	"keywords": [],
 	"author": "",

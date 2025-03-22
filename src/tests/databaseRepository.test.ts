@@ -9,18 +9,6 @@ describe('DataBaseOrderRepository', () => {
 	const product1 = new Product('Latte', 'Vanilla');
 	const order = new Order([product1]);
 
-	it.only('should connect to the database', async () => {
-		const result = await db.any('SELECT 1');
-		console.log({
-			user: process.env.DB_USER,
-			password: process.env.DB_PASSWORD,
-			host: process.env.DB_HOST,
-			port: Number(process.env.DB_PORT),
-			database: process.env.DB_NAME,
-		});
-		expect(result).toEqual([{ '?column?': 1 }]);
-	});
-
 	it('should create an order successfully', async () => {
 		const result = await databaseRepository.createOrder(order);
 		expect(result).toEqual(order);

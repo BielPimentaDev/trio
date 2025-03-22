@@ -5,13 +5,12 @@ import { Order } from '../domain/entities/Order';
 import { TrioPayment } from '../infraestructure/gateways/TrioPayment';
 
 const api = axios.create({
-	baseURL: 'http://localhost:3001/api/',
+	baseURL: 'http://app:3001/api',
 	headers: {
 		'Content-Type': 'application/json',
 		role: 'manager',
 	},
 });
-
 describe('Api test', () => {
 	const orderRepository = new DataBaseOrderRepository();
 	const product1 = new Product('Latte', 'Vanilla');
@@ -51,8 +50,11 @@ describe('Api test', () => {
 		const createdOrder = await orderRepository.createOrder(order);
 		expect(createdOrder).toBeDefined();
 
-		const updatedResponse = await api.put(`/orders/${createdOrder.id}/status`);
+		const updatedResponse = await api.patch(
+			`/orders/${createdOrder.id}/status`
+		);
 		expect(updatedResponse.status).toBe(200);
+
 		const detailsResponse = await orderRepository.getOrderById(createdOrder.id);
 		expect(detailsResponse.status).toBe('preparation');
 

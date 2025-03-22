@@ -63,9 +63,7 @@ export class OrderController {
 
 			const details = await viewDetailsUseCase.execute(orderId);
 			res.json(details);
-		} catch (error) {
-			next(error);
-		}
+		} catch (error) {}
 	}
 
 	async updateOrderStatus(
