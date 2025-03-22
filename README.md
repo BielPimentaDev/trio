@@ -6,7 +6,7 @@ This repository is dedicated to solving the challenge proposed in the following 
 
 ## Architecture
 
-For this project, we chose to use **Hexagonal Architecture**, also known as **Ports and Adapters**. This architectural style focuses on isolating the core business logic from external systems. It achieves this primarily by using the **Dependency Inversion Principle** from SOLID principles, ensuring that high-level business logic does not depend on low-level details.
+For this project, it was chosen to use **Hexagonal Architecture**, also known as **Ports and Adapters**. This architectural style focuses on isolating the core business logic from external systems. It achieves this primarily by using the **Dependency Inversion Principle** from SOLID principles, ensuring that high-level business logic does not depend on low-level details.
 
 By decoupling components, Hexagonal Architecture guarantees a clear separation between business rules and application concerns. This separation allows for easier modifications to external systems without impacting core functionality. Additionally, this isolation enhances **testability**, as the core logic can be tested independently from external dependencies.
 
@@ -14,7 +14,7 @@ By decoupling components, Hexagonal Architecture guarantees a clear separation b
 
 The **Domain** layer is responsible for the core business logic of this application. In this challenge, it implements the following components:
 
-- **Order**: This class handles the management of order resources, such as calculating the total price of the order or deciding which attributes should be used when creating an instance.
+- **Order**: This class handles the management of order resources.
   
 - **Product**: The Product class is a value object within the Order class. It contains the business rules that define which products can be initialized and encapsulates the logic for determining the price of each product.
 
@@ -40,15 +40,15 @@ Here are the services that this application provides, encapsulating the business
 
 ### Repository
 
-The **Repository** pattern abstracts the persistence layer of the application. By depending only on this interface, we can easily change the database type or how data is managed (e.g., using in-memory databases for unit testing).
+The **Repository** pattern abstracts the persistence layer of the application. By depending only on this interface, he database type or how data is managed can be easily changed, like using in-memory databases for unit testing.
 
 ### Gateway
 
-In this project, we use two external APIs: one for payment processing and another for notifications. We chose not to depend directly on these external services, as they may change over time or be swapped for business reasons. Additionally, this design allows us to mock the API behaviors, preventing unnecessary requests during testing.
+In this project, the system communicates with two external APIs: one for payment processing and another for notifications. This design decouples the system from direct dependency on these services, allowing for future changes or replacements. It also enables mocking of API behaviors, reducing unnecessary requests during testing.
 
 ## Infrastructure
 
-The **Infrastructure** layer is responsible for communicating with external systems, such as databases or APIs. In this layer, we implement adapters that convert external systems into the interfaces defined in the **Ports** layer.
+The **Infrastructure** layer is responsible for communicating with external systems, such as databases or APIs. In this layer, Was implemented an adapter that converts external systems into the interfaces defined in the **Ports** layer.
 
 ## REST API Endpoints
 
@@ -103,7 +103,7 @@ curl --request GET \
 
 ## Test Coverage
 
-As previously mentioned, one of the main reasons for choosing Hexagonal Architecture was the high level of decoupling between components, making it easy to test each one independently. Additionally, we followed the **Test-Driven Development (TDD)** approach for this project. We created the tests first and then implemented the logic to make them pass. The tests include both unit and integration tests, ensuring 100% test coverage. This not only improves the reliability and maintainability of the project but also enhances its readability.
+As previously mentioned, one of the main reasons for choosing Hexagonal Architecture was the high level of decoupling between components, making it easy to test each one independently. Additionally, was followed the **Test-Driven Development (TDD)** approach for this project. The tests were created first, and then the logic was implemented to make them pass. The tests include both unit and integration tests, ensuring 100% test coverage. This not only improves the reliability and maintainability of the project but also enhances its readability.
 
 ### Test Coverage Summary
 
